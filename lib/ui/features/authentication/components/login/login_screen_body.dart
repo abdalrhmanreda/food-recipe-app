@@ -92,8 +92,8 @@ class LoginScreenBody extends StatelessWidget {
                                 onPressed: () {
                                   if (formKey.currentState!.validate()) {
                                     AuthCubit.get(context).userLogin(
-                                        email: emailController.text,
-                                        password: passController.text);
+                                        email: emailController.text.trim(),
+                                        password: passController.text.trim());
                                   }
                                 },
                                 text: AppLocalizations.of(context)!

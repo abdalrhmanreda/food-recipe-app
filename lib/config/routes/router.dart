@@ -1,4 +1,5 @@
 import 'package:fast_food/config/routes/routes_path.dart';
+import 'package:fast_food/ui/features/layout/screens/layout.dart';
 import 'package:fast_food/ui/features/on_boarding/screens/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,8 @@ Route? generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const LoginScreen());
     case RoutePath.signUp:
       return MaterialPageRoute(builder: (_) => const RegisterScreen());
+    case RoutePath.layout:
+      return MaterialPageRoute(builder: (_) => const LayoutScreen());
   }
   return null;
 }

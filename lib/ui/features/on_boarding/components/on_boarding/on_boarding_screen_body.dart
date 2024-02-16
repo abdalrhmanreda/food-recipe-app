@@ -1,4 +1,5 @@
 import 'package:fast_food/config/colors/app_colors.dart';
+import 'package:fast_food/core/cache/hive_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -76,8 +77,11 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
                 backgroundColor: const Color(AppColors.kPrimaryColor),
                 onPressed: () {
                   if (isLast) {
-                    CustomNavigation.navigateAndFinishNyNamed(
-                        context, RoutePath.login);
+                    HiveCache.saveData(key: 'onBoarding', value: true)
+                        .then((value) {
+                      CustomNavigation.navigateAndFinishNyNamed(
+                          context, RoutePath.login);
+                    });
                   } else {
                     pageController.nextPage(
                         duration: const Duration(milliseconds: 1000),
