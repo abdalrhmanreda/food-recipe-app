@@ -28,5 +28,12 @@
   "homeTitle": "Recipes Recipes for every day " ,
   "homeDesc": "Cook your favorite recipe from home" ,
   "posterTitle": "learn how to become a master chef...." ,
-  "posterButton": "Read More"
+  "posterButton": "Read More" ,
+  "ingredients": "Ingredients",
+  "measurement": "Measurement" ,
+  "directions": "Directions" ,
+  "watchVideo": "watch video" ,
+  "addToBookmark": "Add to Bookmark" ,
+  "search": "Search"
+
 }

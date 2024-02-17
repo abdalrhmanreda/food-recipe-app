@@ -7,30 +7,19 @@ class CustomFlexibleSpaceBar extends StatelessWidget {
   const CustomFlexibleSpaceBar({
     super.key,
     required this.image,
+    required this.height,
   });
 
   final String image;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return FlexibleSpaceBar(
-      background: Container(
-        padding: const EdgeInsets.all(15),
+      background: CachedNetworkImage(
+        imageUrl: image,
         width: AppConstant.deviceWidth(context),
-        height: AppConstant.deviceHeight(context) / 2,
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
-            bottomRight: Radius.circular(15),
-            bottomLeft: Radius.circular(15),
-          ),
-          image: DecorationImage(
-            image: CachedNetworkImageProvider(
-              image,
-            ),
-            fit: BoxFit.cover,
-          ),
-        ),
+        fit: BoxFit.cover,
       ),
     );
   }
