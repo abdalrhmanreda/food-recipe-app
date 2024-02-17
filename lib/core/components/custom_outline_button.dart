@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../config/colors/app_colors.dart';
+import '../methods/get_responsive_text/responsive_text.dart';
 
 class CustomOutlineButton extends StatelessWidget {
   const CustomOutlineButton({
@@ -20,7 +21,7 @@ class CustomOutlineButton extends StatelessWidget {
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius:
-                BorderRadius.circular(20.0.r), // Set border radius to 15
+                BorderRadius.circular(10.0.r), // Set border radius to 15
             side: const BorderSide(
               color: Color(AppColors.kPrimaryColor),
               style: BorderStyle.solid,
@@ -35,6 +36,7 @@ class CustomOutlineButton extends StatelessWidget {
         text,
         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
               color: const Color(AppColors.kPrimaryColor),
+              fontSize: getResponsiveFontSize(context, fontSize: 15.sp),
             ),
       ),
     );

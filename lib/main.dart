@@ -5,6 +5,7 @@ import 'package:fast_food/core/constant/strings.dart';
 import 'package:fast_food/ui/features/authentication/controller/auth_cubit.dart';
 import 'package:fast_food/ui/features/home/controllers/home_cubit.dart';
 import 'package:fast_food/ui/features/layout/controller/layout_cubit.dart';
+import 'package:fast_food/ui/features/meal_details/controller/meal_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -48,6 +49,9 @@ class FoodRecipeApp extends StatelessWidget {
           create: (context) => AuthCubit(),
         ),
         BlocProvider(
+          create: (context) => MealCubit(),
+        ),
+        BlocProvider(
           create: (context) => HomeCubit()..getCategories(),
         ),
         BlocProvider(
@@ -64,6 +68,7 @@ class FoodRecipeApp extends StatelessWidget {
                 value: const SystemUiOverlayStyle(
                   statusBarColor: Color(AppColors.kWhiteColor),
                   statusBarBrightness: Brightness.light,
+                  statusBarIconBrightness: Brightness.dark,
                 ),
                 child: MaterialApp(
                   debugShowCheckedModeBanner: false,
