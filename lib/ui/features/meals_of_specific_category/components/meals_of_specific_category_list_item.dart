@@ -15,11 +15,13 @@ class MealsOfSpecificCategoryListItem extends StatelessWidget {
     required this.mealName,
     required this.mealTime,
     required this.mealCategory,
+    this.mealArea,
   });
   final String mealImage;
   final String mealName;
   final String mealTime;
   final String mealCategory;
+  final String? mealArea;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +75,15 @@ class MealsOfSpecificCategoryListItem extends StatelessWidget {
                       )),
               Gap(10.h),
               Text(mealCategory,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: const Color(AppColors.kWhiteColor),
+                        fontSize: getResponsiveFontSize(
+                          context,
+                          fontSize: 14.sp,
+                        ),
+                      )),
+              Gap(10.h),
+              Text(mealArea!,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: const Color(AppColors.kWhiteColor),
                         fontSize: getResponsiveFontSize(
