@@ -54,6 +54,7 @@ class LoginScreenBody extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                       ),
+                      Gap(10.h),
                       Text(
                         AppLocalizations.of(context)!.loginDesc,
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(

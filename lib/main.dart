@@ -84,7 +84,7 @@ class FoodRecipeApp extends StatelessWidget {
                       AppLocalizations.localizationsDelegates,
                   supportedLocales: AppLocalizations.supportedLocales,
                   locale: const Locale('en'),
-                  initialRoute: RoutePath.layout,
+                  initialRoute: RoutePath.login,
                   theme: Style.lightTheme,
                   darkTheme: Style.darkTheme,
                   themeMode: ThemeMode.light,
