@@ -179,23 +179,4 @@ class AuthCubit extends Cubit<AuthState> {
       emit(FailureState(error: error.toString()));
     });
   }
-
-  void updateProfileImage({
-    String? uId,
-  }) {
-    emit(LoadingState());
-    firebase_storage.FirebaseStorage.instance
-        .ref()
-        .child('users/${Uri.file(profilePhoto!.path).pathSegments.last}')
-        .putFile(profilePhoto!)
-        .then((p0) {
-      p0.ref.getDownloadURL().then((value) {
-        updateUserData(profileImage: value);
-        profilePhoto = null;
-        emit(UploadProfileImageSuccessState());
-      });
-    }).catchError((error) {
-      emit(FailureState(error: error.toString()));
-    });
-  }
 }
