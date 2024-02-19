@@ -2,6 +2,8 @@ class AppColors {
   static const int kSplashColor = 0xfff9622e;
   static const int kPrimaryColor = 0xff3a744c;
   static const int kGoldColor = 0xffffae00;
+  static const int kProfileCircleColor = 0xff86b494;
+
   static const int kWhiteColor = 0xffffffff;
   static const int kBlackColor = 0xff000000;
   static const int kDarkThemColor = 0xff1f2630;

@@ -59,6 +59,7 @@ class RegisterScreenBody extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                       ),
+                      Gap(10.h),
                       Text(
                         AppLocalizations.of(context)!.createAccount,
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(

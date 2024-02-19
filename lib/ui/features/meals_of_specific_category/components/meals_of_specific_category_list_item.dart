@@ -83,14 +83,16 @@ class MealsOfSpecificCategoryListItem extends StatelessWidget {
                         ),
                       )),
               Gap(10.h),
-              Text(mealArea!,
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        color: const Color(AppColors.kWhiteColor),
-                        fontSize: getResponsiveFontSize(
-                          context,
-                          fontSize: 14.sp,
-                        ),
-                      )),
+              mealArea == null
+                  ? const SizedBox()
+                  : Text(mealArea!,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: const Color(AppColors.kWhiteColor),
+                            fontSize: getResponsiveFontSize(
+                              context,
+                              fontSize: 14.sp,
+                            ),
+                          )),
               Gap(10.h),
               Row(
                 children: [
