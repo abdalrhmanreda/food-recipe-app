@@ -1,3 +1,5 @@
+import 'package:fast_food/config/routes/routes_path.dart';
+import 'package:fast_food/core/components/custom_navigatation.dart';
 import 'package:fast_food/ui/features/authentication/controller/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,7 +37,9 @@ Column bulidTextsAndButton(BuildContext context) {
         ),
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: MaterialButton(
-          onPressed: () {},
+          onPressed: () {
+            CustomNavigation.navigateByNamedTo(context, RoutePath.editProfile);
+          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
