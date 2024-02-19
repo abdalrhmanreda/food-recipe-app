@@ -41,6 +41,7 @@ void showNotificationToast({
   required String title,
   required ToastificationStyle style,
   IconData? icon,
+  bool? mistake,
 }) =>
     toastification.show(
       context: context,
@@ -52,10 +53,12 @@ void showNotificationToast({
           ? null
           : Icon(
               icon,
-              color: const Color(AppColors.kPrimaryColor),
+              color:
+                  mistake! ? Colors.red : const Color(AppColors.kPrimaryColor),
               size: 30.sp,
             ),
-      primaryColor: const Color(AppColors.kPrimaryColor),
+      primaryColor:
+          mistake! ? Colors.red : const Color(AppColors.kPrimaryColor),
       applyBlurEffect: true,
       alignment: Alignment.topRight,
     );

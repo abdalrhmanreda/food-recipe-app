@@ -3,6 +3,7 @@ import 'package:fast_food/core/api/dio_helper.dart';
 import 'package:fast_food/core/cache/hive_cache.dart';
 import 'package:fast_food/core/constant/strings.dart';
 import 'package:fast_food/ui/features/authentication/controller/auth_cubit.dart';
+import 'package:fast_food/ui/features/bookmark/controllers/bookmark_cubit.dart';
 import 'package:fast_food/ui/features/home/controllers/home_cubit.dart';
 import 'package:fast_food/ui/features/layout/controller/layout_cubit.dart';
 import 'package:fast_food/ui/features/meal_details/controller/meal_cubit.dart';
@@ -48,6 +49,9 @@ class FoodRecipeApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthCubit(),
+        ),
+        BlocProvider(
+          create: (context) => BookmarkCubit()..getBookmark(),
         ),
         BlocProvider(
           create: (context) => MealCubit(),

@@ -34,6 +34,7 @@
   "directions": "Directions" ,
   "watchVideo": "watch video" ,
   "addToBookmark": "Add to Bookmark" ,
-  "search": "Search"
+  "search": "Search" ,
+  "bookmark": "Bookmark"
 
 }

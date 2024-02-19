@@ -26,8 +26,9 @@ class SearchScreen extends StatelessWidget {
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: const CustomAppBar(
+          appBar: CustomAppBar(
             color: AppColors.kWhiteColor,
+            title: Text(AppLocalizations.of(context)!.search),
           ),
           body: Padding(
             padding: const EdgeInsets.all(12.0),
