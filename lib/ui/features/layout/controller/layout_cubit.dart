@@ -1,5 +1,5 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
-import 'package:fast_food/ui/features/fav/screens/fav_screen.dart';
+import 'package:fast_food/ui/features/bookmark/screens/bookmark_screen.dart';
 import 'package:fast_food/ui/features/home/screens/home_screen.dart';
 import 'package:fast_food/ui/features/search/screens/search.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +33,7 @@ class LayoutCubit extends Cubit<LayoutState> {
   List<Widget> screens = const [
     HomeScreen(),
     SearchScreen(),
-    FavScreen(),
+    BookmarkScreen(),
     ProfileScreen()
   ];
   void changeIndex(int index) {

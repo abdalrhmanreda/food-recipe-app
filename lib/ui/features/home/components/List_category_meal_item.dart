@@ -7,6 +7,7 @@ import '../../../../core/components/custom_navigatation.dart';
 import '../../../../core/methods/get_responsive_text/responsive_text.dart';
 import '../../meal_details/controller/meal_cubit.dart';
 import '../model/CategoryMealModel.dart';
+import 'bookmark_icon.dart';
 
 class ListCategoryMealItem extends StatelessWidget {
   const ListCategoryMealItem({
@@ -24,58 +25,64 @@ class ListCategoryMealItem extends StatelessWidget {
         MealCubit.get(context).getMealDetails(id: mealModel.idMeal!);
       },
       child: Stack(
-        alignment: Alignment.bottomLeft,
+        alignment: Alignment.topRight,
         children: [
           Stack(
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.bottomLeft,
             children: [
-              Container(
-                width: 150.w,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.r),
-                  image: DecorationImage(
-                    image: NetworkImage(mealModel.strMealThumb!),
-                    fit: BoxFit.cover,
+              Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Container(
+                    width: 150.w,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.r),
+                      image: DecorationImage(
+                        image: NetworkImage(mealModel.strMealThumb!),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                ),
+                  Container(
+                    height: 50.h,
+                    width: 150.w,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.black.withOpacity(0.8),
+                          Colors.black.withOpacity(0.7),
+                          Colors.black.withOpacity(0.6),
+                          Colors.black.withOpacity(0.5),
+                          Colors.black.withOpacity(0.4),
+                          Colors.black.withOpacity(0.3),
+                          Colors.transparent,
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               Container(
-                height: 50.h,
-                width: 150.w,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.black.withOpacity(0.8),
-                      Colors.black.withOpacity(0.7),
-                      Colors.black.withOpacity(0.6),
-                      Colors.black.withOpacity(0.5),
-                      Colors.black.withOpacity(0.4),
-                      Colors.black.withOpacity(0.3),
-                      Colors.transparent,
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  ),
+                padding: const EdgeInsets.all(10),
+                constraints: BoxConstraints(
+                  maxWidth: 150.w,
+                  maxHeight: 50.h,
                 ),
-              ),
+                child: Text(mealModel.strMeal!,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: const Color(AppColors.kWhiteColor),
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 16.sp,
+                          ),
+                        )),
+              )
             ],
           ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            constraints: BoxConstraints(
-              maxWidth: 150.w,
-              maxHeight: 50.h,
-            ),
-            child: Text(mealModel.strMeal!,
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: const Color(AppColors.kWhiteColor),
-                      fontSize: getResponsiveFontSize(
-                        context,
-                        fontSize: 16.sp,
-                      ),
-                    )),
-          )
+          const BookMarkIcon(),
         ],
       ),
     );
