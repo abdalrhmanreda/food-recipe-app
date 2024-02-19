@@ -20,6 +20,7 @@ class AuthCubit extends Cubit<AuthState> {
   var emailController = TextEditingController();
   var passController = TextEditingController();
   var nameController = TextEditingController();
+  var phoneController = TextEditingController();
   void userLogin({
     required String email,
     required String password,
@@ -55,6 +56,7 @@ class AuthCubit extends Cubit<AuthState> {
         email: emailController.text.trim(),
         name: nameController.text.trim(),
         uId: value.user!.uid,
+        phone: phoneController.text.trim(),
       );
       HiveCache.saveData(key: 'userId', value: value.user!.uid);
       userId = value.user!.uid;
@@ -68,6 +70,7 @@ class AuthCubit extends Cubit<AuthState> {
     required String email,
     required String name,
     required String uId,
+    required String phone,
   }) {
     UserModel userModel = UserModel(
       name: name,
@@ -75,6 +78,7 @@ class AuthCubit extends Cubit<AuthState> {
       profileImage:
           'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png',
       address: 'Assuit , Egypt',
+      phone: phone,
     );
     emit(LoadingState());
 
@@ -159,6 +163,7 @@ class AuthCubit extends Cubit<AuthState> {
     UserModel model = UserModel(
       name: name,
       email: email,
+      phone: phone,
       address: address,
       profileImage: profileImage ?? userModel!.profileImage,
     );
@@ -170,6 +175,25 @@ class AuthCubit extends Cubit<AuthState> {
         .then((value) {
       getUserData(userId: userId!);
       emit(UpdateUserDataSuccessState());
+    }).catchError((error) {
+      emit(FailureState(error: error.toString()));
+    });
+  }
+
+  void updateProfileImage({
+    String? uId,
+  }) {
+    emit(LoadingState());
+    firebase_storage.FirebaseStorage.instance
+        .ref()
+        .child('users/${Uri.file(profilePhoto!.path).pathSegments.last}')
+        .putFile(profilePhoto!)
+        .then((p0) {
+      p0.ref.getDownloadURL().then((value) {
+        updateUserData(profileImage: value);
+        profilePhoto = null;
+        emit(UploadProfileImageSuccessState());
+      });
     }).catchError((error) {
       emit(FailureState(error: error.toString()));
     });

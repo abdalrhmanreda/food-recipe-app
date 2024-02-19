@@ -77,6 +77,11 @@ class RegisterScreenBody extends StatelessWidget {
                         hint: AppLocalizations.of(context)!.userName,
                       ),
                       Gap(20.h),
+                      TitleAndTextFormFeild(
+                        nameController: AuthCubit.get(context).phoneController,
+                        hint: 'phone number',
+                      ),
+                      Gap(20.h),
                       CustomTwoTextFromField(
                         controller1: AuthCubit.get(context).emailController,
                         controller2: AuthCubit.get(context).passController,

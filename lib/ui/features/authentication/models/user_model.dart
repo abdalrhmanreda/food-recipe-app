@@ -5,12 +5,14 @@ class UserModel extends Equatable {
   String? email;
   String? profileImage;
   String? address;
+  String? phone;
 
   UserModel({
     this.name,
     this.email,
     this.profileImage,
     this.address,
+    this.phone,
   });
 
   UserModel.fromJson(Map<String, dynamic> json) {
@@ -18,6 +20,7 @@ class UserModel extends Equatable {
     email = json['email'];
     profileImage = json['profileImage'];
     address = json['address'];
+    phone = json['phone'];
   }
 
   Map<String, dynamic> toJson() {
@@ -26,10 +29,11 @@ class UserModel extends Equatable {
     data['email'] = email;
     data['profileImage'] = profileImage;
     data['address'] = address;
+    data['phone'] = phone;
 
     return data;
   }
 
   @override
-  List<Object> get props => [name!, email!, profileImage!, address!];
+  List<Object> get props => [name!, email!, profileImage!, address!, phone!];
 }

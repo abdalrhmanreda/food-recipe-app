@@ -5,4 +5,5 @@ class RoutePath {
   static const String signUp = '/signUpScreen';
   static const String mealDetails = 'mealDetailsScreen';
   static const String layout = '/layoutScreen';
+  static const String editProfile = '/editProfileScreen';
 }
