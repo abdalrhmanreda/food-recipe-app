@@ -4,6 +4,7 @@
 
 The Food Recipe App is a mobile application designed to provide users with a seamless experience in discovering, exploring, and saving delicious recipes. Whether you are a cooking enthusiast or someone looking for quick and easy meal ideas, this app has you covered.
 
+<img  alt="on boarding" src="https://github.com/abdalrhmanreda/food-recipe-app/assets/93455945/2ba095cb-636b-4584-b5e5-70beff0cbfc9">
 
 ## Features
 
